@@ -9,12 +9,8 @@
 * **SCSS**
 * **Bootstrap**
 * **RxJS**
-* **Angular Router**
-* **Angular Forms**
-* **Angular HttpClient**
 * **JSON Server**
 * **REST API**
-* **Git & GitHub**
   
 # 📚 Book Management — Angular & JSON Server
 
