@@ -1,0 +1,43 @@
+
+<!--CLEAN BLOG-->
+
+  <!-- Main Content -->
+  <div class="container">
+    <div *ngIf="error" class="alert alert-danger">Error</div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mx-0">
+        <div class="search-book">
+          <input type="text" class="form-control" name="search" [(ngModel)]="search" autocomplete="off" placeholder="🔍 Cerca tramite titolo o autore...">
+        </div>
+      <ul class="list-group">
+         <li class="list-group-item d-flex flex-row justify-content-between align-items-center fs-6 gap-3" *ngFor="let book of filteredBooks | paginate: {itemsPerPage: 5, currentPage: p}" [ngClass]="{'active' : book.id === active?.id}" (click)="setActive(book)">
+          
+        <div class="d-flex align-items-center">
+          <img class="img-books" [src]="book.img ? book.img : '../../../assets/img/libri/no-img.jpg'" type="img-thumbnail" width="40">
+          {{book.title}} - {{book.author}}
+        </div>
+
+          <div class="d-flex align-items-center gap-3">
+            <span [style.color]="book.price > 15 ? 'red' : null">{{book.price | number:'1.2-2'}} € </span>
+            <i class="fa fa-info-circle ml-2" aria-hidden="true" [routerLink]="['/book', book.id]"></i>
+            <i class="fa fa-trash" (click)="delete($event, book)"></i>
+          </div>
+         </li>
+      </ul>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+      
+      <div class="col-lg-6 col-md-12 mx-0">
+
+       <app-form [active]="active" [books] ="books" (resetClick) ="reset()"></app-form>
+
+      </div>
+    </div>
+  </div>
+
+  
+
+  
+
+  
+

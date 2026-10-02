@@ -1,0 +1,34 @@
+
+ <form #f="ngForm" (submit)="save(f)">
+           <div class="mb-3 form-group">
+               <input [ngModel]="active?.title" type="text" name="title" class="form-control" placeholder="Insert title..." required>
+            </div>
+            <div class="mb-3 form-group">
+                 <input [ngModel]="active?.author" type="text" name="author" class="form-control" placeholder="Insert author..." required>
+            </div>
+            <div class="mb-3 form-group">
+               <input [ngModel]="active?.price" type="number" name="price" class="form-control" placeholder="Insert price..." required>
+            </div>
+            <div class="mb-3 form-group">
+               <input [ngModel]="active?.isbn" type="text" name="isbn" class="form-control" placeholder="Insert ISBN..." required>
+            </div>
+            <div class="mb-3 form-group">
+               <input [ngModel]="active?.description" type="text" name="description" class="form-control" placeholder="Insert description..."required >
+            </div>
+
+            <div class="form-group">
+               <input style="display: none" type="file" name="img" class="form-control" (change)="readUrl($event)" #selectedFile>
+            </div>
+            <div class="mb-3">
+              <img *ngIf="active" [src]="active.img" height="130">
+              <img *ngIf="this.imageSrc" [src]="this.imageSrc" height="130">
+              <button type="button" class="buttonselect btn btn-outline-warning btn-sm" (click)="selectedFile.click()">SELECT IMAGE</button>
+            </div>
+            <input *ngIf="this.imageSrc" [ngModel]="this.imageSrc" type="hidden" name="img">
+            <input *ngIf="active" [ngModel]="active.img" type="hidden" name="img">
+
+            <div class="bottoni">
+                <button type="submit" class="btn btn-outline-warning btn-sm" [disabled]="f.invalid">{{active ? 'EDIT' : 'ADD'}}</button>
+                <button type="button" class="btn btn-outline-success ml-1 btn-sm" (click)="reset(f)">RESET</button>
+            </div>
+        </form>

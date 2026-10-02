@@ -1,0 +1,29 @@
+
+.bellottaFont {
+      font-family: 'Bellota', cursive;
+    }
+    .btn-group-sm > .btn, .btn-sm {
+      padding: .25rem .5rem;
+      font-size: .875rem;
+      line-height: 1.5;
+      border-radius: .2rem;
+    }
+
+.box-all {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+}
+
+.post-meta {
+    font-size: 20px;
+    font-style: italic;
+    font-family: 'Lora', serif;
+    color: #6c757d;
+}
+
+.post-title {
+    width: 450px;
+}

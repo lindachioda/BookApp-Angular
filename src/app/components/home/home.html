@@ -1,0 +1,28 @@
+<div class="container">
+
+      <div class="search-book">
+          <input type="text" class="form-control" name="search" [(ngModel)]="search" autocomplete="off" placeholder="🔍 Cerca tramite titolo o autore...">
+      </div>
+
+      <div style="margin-bottom:20px">
+        <h2 class="cards-title"><i class="fa fa-star"></i>Favourite</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <figure class="figure" *ngFor="let book of filteredBooks">
+            <img [src]="book.img" class="figure-img img-fluid">
+            <figcaption class="figure-caption">
+              <span class="price"> € {{book.price | number:'1.2-2'}}</span>
+              <div class="strip">
+                <h4>{{book.title}}</h4>
+                <h5>Author: {{book.author}}</h5>
+                <h6 style="text-align: center">
+                    <i class="fa fa-share-square" aria-hidden="true" [routerLink]="['/book' , book.id]"></i> 
+                    <i class="fa fa-heart"></i>
+                </h6>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>

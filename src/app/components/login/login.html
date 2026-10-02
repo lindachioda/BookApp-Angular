@@ -1,0 +1,25 @@
+
+<div class='text-center cpntainer-fluid' style="width:300px; height:auto;position: relative;margin: 0 auto; "> 
+    <div *ngIf='showerrmsg' class="alert alert-danger text-center"> 
+        <p>{{showerrmsg}}</p>
+    </div>
+ <form novalidate #f="ngForm" (ngSubmit)=sendLogin(f) class="form-signin">
+         <h1 class="h3 mb-3 font-weight-normal">Please sign in (demo)</h1>
+     <input type="email" id="email" class="form-control fadeIn second" name="email" #email="ngModel" [(ngModel)]="modelemail" placeholder="email" required>   
+     <div style="color: red" *ngIf="email.invalid && email.touched">
+    <small style="font-size:0.75em">* Il campo Email è obbligatorio</small>
+  </div>
+
+     <input type="password" id="password" class="form-control fadeIn third" name="password" placeholder="password" #password="ngModel" [ngModel]="modelpassword" required>
+        <div style="color: red" *ngIf="password. invalid && password. touched">
+            <small style="font-size:0.75em">* Il campo Password è obbligatorio</small>
+        </div>
+
+            <div class="checkbox mb-3" style="font-size:0.80em">
+              <label><input type="checkbox" value="remember-me"> Remember me</label><br/>
+                  <small>Torna alla <a routerLink=""><span style="color: orangered">Home</span></a></small>
+             </div> 
+
+            <button [disabled]='f.invalid' class="btn btn-sm btn-warning" type="submit">Sign in</button>
+ </form>
+</div>

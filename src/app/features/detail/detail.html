@@ -1,0 +1,25 @@
+
+
+<div *ngIf="book" class="row">
+      <div class="box-all col-lg-8 col-md-10 mx-auto">
+        
+        <div class="text-box">
+          <h2 class="post-title">{{book.title}}</h2>
+          <small class="post-meta">di {{book.author}}</small>
+          <small class="post-subtitle">
+            <br>
+            € {{book.price | number: '1.2-2'}}
+          </small>
+          <small class="post-subtitle">
+            <br>
+            {{book.isbn}}
+          </small>
+          <p class="post-title bellottaFont">{{book.description | truncate: 600}}</p>
+          <button class="btn btn-outline-warning btn-sm" (click)="goBack()">GO BACK</button>
+        </div>
+
+        <div class="img-box">
+          <img class="img-thumbnail" width="250" [src]="book.img" [alt]="book.title">
+        </div>
+      </div>
+    </div>
